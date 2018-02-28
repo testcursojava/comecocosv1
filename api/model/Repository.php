@@ -15,5 +15,9 @@
             return $this->db->query($sql,$args);
         }
         
+        protected function add($tabla,$args){
+            return $this->db->add($tabla,$args);
+        }
+        
     }
 ?>
