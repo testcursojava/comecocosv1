@@ -19,12 +19,17 @@
             $this->connection = new PDO("mysql:dbname=$db;host=$host", $username, $password);
         }
         public function query($sql, $args){
-            $stmt = $this->connection->prepare($sql);
-            for($i=0;$i<sizeof($args);$i++){
-                $arg = $args[$i];
-                $stmt->bindParam(":".$arg["k"], $arg["v"], $arg["int"]?(PDO::PARAM_INT):(PDO::PARAM_STR));
+            try { 
+                $stmt = $this->connection->prepare($sql);
+                for($i=0;$i<sizeof($args);$i++){
+                    $arg = $args[$i];
+                    $stmt->bindParam(":".$arg["k"], $arg["v"], $arg["int"]?(PDO::PARAM_INT):(PDO::PARAM_STR));
+                }
+                $stmt->execute();
+            }catch(PDOExecption $e) { 
+                $this->connection->rollBack(); 
+                print "Error!: " . $e->getMessage() . "</br>"; 
             }
-            $stmt->execute();
             return $stmt;
         }
         
