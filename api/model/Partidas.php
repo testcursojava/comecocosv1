@@ -25,8 +25,8 @@
                 return NULL;
             else{
                 include_once("entidades/Partida.php");
-                $user = new Partida($row);
-                return $user;
+                $partida = new Partida($row);
+                return $partida;
             }
         }
         

@@ -4,10 +4,11 @@
         public $partida;
         
         function __construct($row){
-            include_once("../Usuarios.php");
+            $basemodel = $_SERVER["DOCUMENT_ROOT"]."/api/model/";
+            include_once($basemodel."Usuarios.php");
             $usuarios = new Usuarios();
             $this->user = $usuarios->getById($row["user"]);
-            include_once("../Partidas.php");
+            include_once($basemodel."Partidas.php");
             $partidas = new Partidas();
             $this->partida = $partidas->getById($row["partida"]);
         }
@@ -18,6 +19,7 @@
                 $respuesta["user"]=$this->user->get();
             if($this->partida!=NULL)
                 $respuesta["partida"]=$this->partida->get();
+            return $respuesta;
         }
         
     }
