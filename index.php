@@ -1,9 +1,9 @@
 <!DOCTYPE>
 <html>
     <head>
-            <link rel="stylesheet" href="estilos.css">
-            <title>PacMan</title>
-        </head>
+        <link rel="stylesheet" href="estilos.css">
+        <title>PacMan</title>
+    </head>
     <body>
         <header>
                 <div class="logo">
@@ -21,4 +21,5 @@
         include("fragments/registerUser.php");
 ?>
 	</body>
+    <script src="js/jquery.min.js"></script>
 </html>
