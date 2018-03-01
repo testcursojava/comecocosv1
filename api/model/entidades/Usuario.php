@@ -3,6 +3,10 @@
         public $id;
         public $nick;
         
+        function __construct($row){
+            $this->set($row);
+        }
+        
         public function set($row){
             $this->id = intval($row["id"]);
             $this->nick = $row["nick"];

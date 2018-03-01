@@ -19,5 +19,12 @@
             return $this->db->add($tabla,$args);
         }
         
+        protected function getByIdTable($table,$id){
+            $row = NULL;
+            $stmt = $this->query("select * from ".$tabla." where id=:id limit 1",array(array("k"=>"id","v"=>$id,"int"=>true)));
+            while($row = $stmt->fetch(PDO::FETCH_ASSOC));
+            return $row;
+        }
+        
     }
 ?>

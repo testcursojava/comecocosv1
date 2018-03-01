@@ -8,8 +8,18 @@
 		if(isset($_SESSION["partida"]) && $_SESSION["partida"]!=NULL){
 ?>
 	<div>Tablero</div>
+	<button id="cerrar">CERRAR</button>
+	<script>
+		document.getElementById("cerrar").onclick = function(){
+			
+		}
+	</script>
 <?php
 		}else{
+            include("api/model/Partidas.php");
+            $reppartida = new Partidas();
+            $partidas = $reppartida->listar();
+            echo json_encode($partidas);
 ?>
 
 		<form action="api/insertpartida.php" method="post">
