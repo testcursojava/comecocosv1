@@ -5,10 +5,10 @@
         const HOST="localhost";
         const DB="comecocos";
         
-        private $connection;
+        private $connection = NULL;
         
         function __construct(){
-            $this->createConnection();
+            //$this->createConnection();
         }
 
         private function createConnection(){
@@ -18,7 +18,7 @@
             $db = self::DB;
             $this->connection = new PDO("mysql:dbname=$db;host=$host", $username, $password);
         }
-        public function query($sql, $args){
+        private function execq($sql, $args){
             try { 
                 $stmt = $this->connection->prepare($sql);
                 for($i=0;$i<sizeof($args);$i++){
@@ -33,7 +33,14 @@
             return $stmt;
         }
         
+        public function query($sql, $args){
+            $this->createConnection();
+            return $this->execq($sql,$args);
+            //$this->close();
+        }
+        
         public function add($tabla, $args){
+            $this->createConnection();
             $columns = "";
             $values = "";
             for($i=0;$i<sizeof($args);$i++){
@@ -46,8 +53,17 @@
                 $values.=":".$arg["k"];
             }
             $sql = "INSERT INTO ".$tabla."(".$columns.") values (".$values.")";
-            $stmt = $this->query($sql,$args);
-            return $this->connection->lastInsertId();
+            $stmt = $this->execq($sql,$args);
+            $id = $this->connection->lastInsertId();
+            $this->close();
+            return $id;
+        }
+        
+        public function close(){
+            if($this->connection!=NULL){
+                $this->connection->close();
+                $this->connection = NULL;
+            }
         }
         
     }

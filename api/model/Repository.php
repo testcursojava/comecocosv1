@@ -24,6 +24,7 @@
             $stmt = $this->query("select * from ".$table." where id=:id limit 1",array(array("k"=>"id","v"=>$id,"int"=>true)));
             while($row = $stmt->fetch(PDO::FETCH_ASSOC));
             $stmt->closeCursor();
+            $this->db->close();
             return $row;
         }
         

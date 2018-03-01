@@ -1,0 +1,43 @@
+*{
+ box-sizing: border-box;   
+}
+.logo{
+    background-image: url("imgjuego/es.jpg");
+    background-position: center;
+    background-size: 60% 100%;
+    color: black;
+    font-family: bold;
+    font-size: 80px;
+    padding-top: 5px;
+    text-align: center;
+    padding-bottom: 5px;
+    text-shadow: rgba(0,0,150,0.5) 15px 15px 17px;
+}
+body{
+ background-color: #BAB1C3;
+}
+.tablero{
+ width: 800px;
+ height: 800px;
+ border: 3px dashed; 
+ border-color: #462A64;
+ background-image: url("https://i.pinimg.com/236x/0f/44/5c/0f445c2bbba8047c522392c24330347b--computer-keyboard.jpg");
+
+}
+p{
+ font-size: 25px;
+ font-family: sans-serif;
+ color: #462A64;
+ margin: 0px;
+ padding: 0px;
+}
+.imagen{
+ float: left;
+ margin: 0px;
+ padding: 0px;
+}
+.crea{
+  float: left;
+   margin: 0px;
+ padding: 0px;
+}
