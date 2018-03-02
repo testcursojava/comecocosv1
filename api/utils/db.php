@@ -60,10 +60,10 @@
         }
         
         public function close(){
-            if($this->connection!=NULL){
+            /*if($this->connection!=NULL){
                 $this->connection->close();
                 $this->connection = NULL;
-            }
+            }*/
         }
         
     }

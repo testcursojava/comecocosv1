@@ -4,6 +4,8 @@
         
         const TABLA = "partidas";
         
+        protected $table = self::TABLA;
+        
         public function register($nombre,$user){
             return $this->add(self::TABLA,array(array("k"=>"nombre","v"=>$nombre,"int"=>false),array("k"=>"admin","v"=>$user,"int"=>true)));
         }

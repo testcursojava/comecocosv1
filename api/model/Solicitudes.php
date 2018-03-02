@@ -4,6 +4,8 @@
         
         const TABLA = "solicitudes";
         
+        protected $table = self::TABLA;
+        
         public function register($user,$partida){
             return $this->add(self::TABLA,array(
                 array("k"=>"partida","v"=>$partida,"int"=>true),

@@ -2,6 +2,14 @@
     include_once("Repository.php");
     class Usuarios extends Repository{
         const TABLA = "usuarios";
+        
+        protected $table = self::TABLA;
+        
+        /*function __construct(){
+            parent::__construct();
+            $this->setTable(self::TABLA);
+        }*/
+        
         public function register($nick){
             return $this->add(self::TABLA,array(array("k"=>"nick","v"=>$nick,"int"=>false)));
         }

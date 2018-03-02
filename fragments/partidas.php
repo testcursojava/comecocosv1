@@ -1,4 +1,4 @@
-<button id="cerrarsesion"></button>
+<button id="cerrarsesion">CERRAR SESIÓN</button>
 <div class="crea">
     <center>
         <p> CREA TU PARTIDA </p>
@@ -28,20 +28,12 @@
 <script>
     document.getElementById("cerrarsesion").onclick = function(){
          $.ajax({
-            type: 'POST',
-            url: url,
-            data: data,
-            success: function(response){
-                if(callback!=undefined) manageResponse(response,callback,cFinish);
-            }
-        }).fail(function(jqXHR,status, errorThrown) {
-            ajax.hideLoading(cFinish);
-            if (cberror) {
-                cberror();
-            }
-            if (url.indexOf("errors.php")!=-1) {
-                alert("Error de conexiÃ³n, vuelva a intentarlo");
-                ajax.post("services/errors.php",{error:errorThrown});
+            type: 'GET',
+            url: "/api/logout.php",
+            dataType: "json",
+            success: function(r){
+                if(r.isok)
+                    document.location.href = "index.php";
             }
         });
     }

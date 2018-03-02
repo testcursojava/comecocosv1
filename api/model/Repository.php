@@ -1,6 +1,7 @@
 <?php
     abstract class Repository{
         protected $db;
+        protected $table;
         
         function __construct(){
             $this->init();
@@ -9,6 +10,10 @@
         protected function init(){
             include_once($_SERVER["DOCUMENT_ROOT"]."/api/utils/db.php");
             $this->db = new DBR();
+        }
+        
+        protected function setTable($t){
+            $this->table = $t;
         }
         
         protected function query($sql,$args){
@@ -27,6 +32,12 @@
             $this->db->close();
             return $row;
         }
+        
+        public function delete($id){
+            $this->query("DELETE FROM ".$this->table." WHERE id=:id",
+                array(array("k"=>"id","v"=>$id,"int"=>true)));
+        }
+        
         
     }
 ?>
