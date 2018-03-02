@@ -17,7 +17,7 @@
             include_once("entidades/Solicitud.php");
             $stmt = $this->query("select * from ".self::TABLA,array());
             $result = $stmt->fetchAll();
-            $stmt->closeCursor();
+            //$stmt->closeCursor();
             $lista = array();
             for($i=0;$i<sizeof($result);$i++){
                 $solicitud = new Solicitud($result[$i]);

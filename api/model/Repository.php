@@ -27,9 +27,10 @@
         protected function getByIdTable($table,$id){
             $row = NULL;
             $stmt = $this->query("select * from ".$table." where id=:id limit 1",array(array("k"=>"id","v"=>$id,"int"=>true)));
-            while($row = $stmt->fetch(PDO::FETCH_ASSOC));
-            $stmt->closeCursor();
-            $this->db->close();
+            $result = $stmt->fetchAll();
+            if(sizeof($result)>0)
+                $row = $result[0];
+            //$this->db->close();
             return $row;
         }
         

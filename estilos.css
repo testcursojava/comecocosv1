@@ -1,5 +1,5 @@
-*{
- box-sizing: border-box;   
+* {
+    box-sizing: border-box;
 }
 .logo{
     background-image: url("imgjuego/es.jpg");
@@ -12,10 +12,9 @@
     text-align: center;
     padding-bottom: 5px;
     text-shadow: rgba(0,0,150,0.5) 15px 15px 17px;
+    
 }
-body{
- background-color: #BAB1C3;
-}
+
 .tablero{
  width: 800px;
  height: 800px;
@@ -26,18 +25,13 @@ body{
 }
 p{
  font-size: 25px;
- font-family: sans-serif;
+ font-family: boold, sans-serif;
  color: #462A64;
  margin: 0px;
  padding: 0px;
 }
-.imagen{
+/*.imagen{
  float: left;
  margin: 0px;
  padding: 0px;
-}
-.crea{
-  float: left;
-   margin: 0px;
- padding: 0px;
-}
+}*/

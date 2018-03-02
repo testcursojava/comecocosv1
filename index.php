@@ -1,15 +1,16 @@
 <!DOCTYPE>
 <html>
     <head>
-        <link rel="stylesheet" href="estilos.css">
-        <title>PacMan</title>
-    </head>
+            <link rel="stylesheet" href="estilos.css?v=3">
+            <title>PacMan</title>
+            
+        </head>
     <body>
         <header>
                 <div class="logo">
                     <h1> PAC-MAN </h1>
                 </div>
-            </header>
+        </header>
 <?php
 	session_start();
 	if(isset($_SESSION["user"]) && $_SESSION["user"]!=NULL){
