@@ -6,10 +6,6 @@
         public $admin;
         
         function __construct($row){
-            $this->set($row);
-        }
-        
-        public function set($row){
             $this->id = intval($row["id"]);
             $this->nombre = $row["nombre"];
             $this->fecha = $row["fecha"];

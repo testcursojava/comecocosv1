@@ -15,7 +15,7 @@
         
         public function listar($partida){
             include_once("entidades/Solicitud.php");
-            $stmt = $this->query("select * from ".self::TABLA,array());
+            $stmt = $this->query("select * from ".self::TABLA." where partida=".$partida,array());
             $result = $stmt->fetchAll();
             //$stmt->closeCursor();
             $lista = array();

@@ -32,5 +32,18 @@
             }
         }
         
+        public function isAdmin($user,$partida){
+            $finded = false;
+            $stmt = $this->query("select * from ".self::TABLA." where admin=:u and id=:id",
+                                 array(
+                                    array("k"=>"u","v"=>$user,"int"=>true),
+                                    array("k"=>"id","v"=>$partida,"int"=>true)
+                                ));
+            while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+                $finded = true;
+            }
+            return $finded;
+        }
+        
     }
 ?>

@@ -1,7 +1,7 @@
 <!DOCTYPE>
 <html>
     <head>
-            <link rel="stylesheet" href="estilos.css?v=3">
+            <link rel="stylesheet" href="estilos.css?t=<?php echo time(); ?>">
             <title>PacMan</title>
             
         </head>
