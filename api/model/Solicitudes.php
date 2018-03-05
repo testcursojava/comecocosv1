@@ -30,5 +30,9 @@
             return $lista;
         }
         
+        public function eliminar($user,$partida){
+            $this->query("DELETE FROM ".self::TABLA,array());
+        }
+        
     }
 ?>
