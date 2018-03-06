@@ -31,7 +31,11 @@
         }
         
         public function eliminar($user,$partida){
-            $this->query("DELETE FROM ".self::TABLA,array());
+            $this->query("DELETE FROM ".self::TABLA." WHERE user=:u AND partida=:p",
+                         array(
+                            array("k"=>"u","v"=>$user,"int"=>true),
+                            array("k"=>"p","v"=>$partida,"int"=>true)
+                        ));
         }
         
     }

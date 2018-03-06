@@ -1,4 +1,6 @@
-
+<?php
+    echo json_encode($_SESSION);
+?>
     
     <center><div class="tablero">Tablero</div>
     <table>
@@ -36,7 +38,8 @@
                 buttonAceptarComecoco.innerHTML = "COMECOCO";
                 buttonAceptarFantasma.innerHTML = "FANTASMA";
                 buttonDenegar.innerHTML = "DENEGAR";
-                columnaAccion.appendChild(buttonAceptar);
+                columnaAccion.appendChild(buttonAceptarComecoco);
+                columnaAccion.appendChild(buttonAceptarFantasma);
                 columnaAccion.appendChild(buttonDenegar);
                 fila.appendChild(columnaAccion);
                 solicitudesDOM.appendChild(fila);
