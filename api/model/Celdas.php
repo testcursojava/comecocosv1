@@ -85,7 +85,19 @@
         }
         
         private function fillComida($ocupadas,$dimension){
-            
+            for($x=0;$x<$dimension;$x++){
+                for($y=0;$y<$dimension;$y++){
+                    if($this->canset($ocupadas,$x,$y)){
+                        $this->add(self::TABLA,array(
+                            array("k"=>"partida","v"=>$this->partida,"int"=>true),
+                            array("k"=>"x","v"=>$v,"int"=>true),
+                            array("k"=>"y","v"=>$y,"int"=>true),
+                            array("k"=>"oc","v"=>0,"int"=>true),
+                            array("k"=>"movimiento","v"=>0,"int"=>true)
+                         ));
+                    }
+                }
+            }
         }
         
         private function fillRoles($dimension,$roles,$distmin){
