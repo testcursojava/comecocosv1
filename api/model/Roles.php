@@ -28,5 +28,18 @@
             return $rol;
         }
         
+        public function getByPartida($partida){
+            $rol = NULL;
+            $stmt = $this->query("select * from ".self::TABLA." where partida=:p",
+                                 array(array("k"=>"p","v"=>$partida,"int"=>true))
+                                 );
+            include_once("entidades/Rol.php");
+            while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+                $rol = new Rol($row);
+            }
+            
+            return $rol;
+        }
+        
     }
 ?>

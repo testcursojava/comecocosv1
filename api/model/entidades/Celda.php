@@ -24,5 +24,21 @@
                 $this->oc = $roles->getByUser($row["oc"]);
             }
         }
+        
+        public function get(){
+            
+            $respuesta = array();
+            $respuesta["id"] = $this->id;
+            $respuesta["x"] = $this->x;
+            $respuesta["y"] = $this->y;
+            if($this->partida!=NULL)
+                $respuesta["partida"]=$this->partida->get();
+            $respuesta["isComida"] = $this->isComida;
+            $respuesta["movimiento"] = $this->movimiento;
+            if(!$this->isComida)
+                $respuesta["oc"] = $this->oc->get();
+            return $respuesta;
+        }
+        
     }
 ?>
